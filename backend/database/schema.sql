@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS mentor_profiles (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID NOT NULL UNIQUE REFERENCES auth.users(id) ON DELETE CASCADE,
     industry TEXT,
-    role TEXT,  -- Job title/role
+    job_title TEXT,  -- Job title/position (e.g., "Senior Software Engineer")
     help_types_offered TEXT[] NOT NULL DEFAULT '{}',
     max_requests_per_week INTEGER NOT NULL DEFAULT 3 CHECK (max_requests_per_week > 0),
     interests TEXT[] DEFAULT '{}',

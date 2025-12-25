@@ -10,7 +10,7 @@ class MentorProfile(BaseModel):
     id: UUID
     user_id: UUID
     industry: Optional[str] = None
-    role: Optional[str] = None
+    job_title: Optional[str] = None  # Job title/position (e.g., "Senior Software Engineer")
     help_types_offered: List[HelpType]
     max_requests_per_week: int
     interests: List[str]

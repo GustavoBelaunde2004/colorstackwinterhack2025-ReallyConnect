@@ -9,7 +9,7 @@ from models.mentor import MentorProfile
 class MentorProfileCreate(BaseModel):
     """Schema for creating a mentor profile."""
     industry: Optional[str] = None
-    role: Optional[str] = None
+    job_title: Optional[str] = None  # Job title/position (e.g., "Senior Software Engineer")
     help_types_offered: List[HelpType]
     max_requests_per_week: int
     interests: List[str]
@@ -18,7 +18,7 @@ class MentorProfileCreate(BaseModel):
 class MentorProfileUpdate(BaseModel):
     """Schema for updating a mentor profile (all fields optional)."""
     industry: Optional[str] = None
-    role: Optional[str] = None
+    job_title: Optional[str] = None  # Job title/position (e.g., "Senior Software Engineer")
     help_types_offered: Optional[List[HelpType]] = None
     max_requests_per_week: Optional[int] = None
     interests: Optional[List[str]] = None
@@ -30,7 +30,7 @@ class MentorProfileResponse(BaseModel):
     id: UUID
     user_id: UUID
     industry: Optional[str] = None
-    role: Optional[str] = None
+    job_title: Optional[str] = None  # Job title/position (e.g., "Senior Software Engineer")
     help_types_offered: List[HelpType]
     max_requests_per_week: int
     interests: List[str]
