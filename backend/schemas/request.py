@@ -11,7 +11,7 @@ class MentorshipRequestCreate(BaseModel):
     mentor_id: UUID
     help_type: HelpType
     context: str  # Short context about the request
-    key_questions: List[str]  # Specific questions
+    key_questions: Optional[List[str]] = None  # Specific questions (optional)
 
 
 class MentorshipRequestResponse(BaseModel):
@@ -21,7 +21,7 @@ class MentorshipRequestResponse(BaseModel):
     mentor_id: UUID
     help_type: HelpType
     context: str
-    key_questions: List[str]
+    key_questions: Optional[List[str]] = None
     status: RequestStatus
     created_at: datetime
     responded_at: Optional[datetime] = None

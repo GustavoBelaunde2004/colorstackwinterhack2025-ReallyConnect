@@ -12,7 +12,7 @@ class MentorshipRequest(BaseModel):
     mentor_id: UUID
     help_type: HelpType
     context: str  # Short context about the request
-    key_questions: List[str]  # Specific questions
+    key_questions: Optional[List[str]] = None  # Specific questions (optional)
     status: RequestStatus = RequestStatus.PENDING
     created_at: datetime
     responded_at: Optional[datetime] = None
