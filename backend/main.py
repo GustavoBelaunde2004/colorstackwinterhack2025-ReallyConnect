@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Dict
 
-from routes import users, mentors, mentees, requests, matches, ai
+from routes import users, mentors, mentees, requests, matches, ai, interests
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -22,6 +22,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(users.router, prefix="/api/users", tags=["users"])
+app.include_router(interests.router, prefix="/api/interests", tags=["interests"])
 app.include_router(mentors.router, prefix="/api/mentors", tags=["mentors"])
 app.include_router(mentees.router, prefix="/api/mentees", tags=["mentees"])
 app.include_router(requests.router, prefix="/api/requests", tags=["requests"])
