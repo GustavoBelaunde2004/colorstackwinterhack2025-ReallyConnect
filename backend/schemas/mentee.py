@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from datetime import datetime
 from uuid import UUID
 from models.common import HelpType
+from models.interest import Interest
 from models.mentee import MenteeProfile
 
 
@@ -11,7 +12,7 @@ class MenteeProfileCreate(BaseModel):
     goals: Optional[str] = None
     help_needed: List[HelpType]
     background: Optional[str] = None
-    interests: List[str]
+    interest_ids: List[UUID]  # List of interest IDs
 
 
 class MenteeProfileUpdate(BaseModel):
@@ -19,7 +20,7 @@ class MenteeProfileUpdate(BaseModel):
     goals: Optional[str] = None
     help_needed: Optional[List[HelpType]] = None
     background: Optional[str] = None
-    interests: Optional[List[str]] = None
+    interest_ids: Optional[List[UUID]] = None  # List of interest IDs
 
 
 class MenteeProfileResponse(BaseModel):
@@ -29,7 +30,7 @@ class MenteeProfileResponse(BaseModel):
     goals: Optional[str] = None
     help_needed: List[HelpType]
     background: Optional[str] = None
-    interests: List[str]
+    interests: List[Interest]  # Full Interest objects
     created_at: datetime
     updated_at: datetime
 
