@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from datetime import datetime
 from uuid import UUID
 from models.common import HelpType
+from models.interest import Interest
 
 
 class MenteeProfile(BaseModel):
@@ -12,7 +13,7 @@ class MenteeProfile(BaseModel):
     goals: Optional[str] = None
     help_needed: List[HelpType]
     background: Optional[str] = None
-    interests: List[str]
+    interests: List[Interest]
     created_at: datetime
     updated_at: datetime
 

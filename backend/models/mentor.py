@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from datetime import datetime
 from uuid import UUID
 from models.common import HelpType
+from models.interest import Interest
 
 
 class MentorProfile(BaseModel):
@@ -13,7 +14,7 @@ class MentorProfile(BaseModel):
     job_title: Optional[str] = None  # Job title/position (e.g., "Senior Software Engineer")
     help_types_offered: List[HelpType]
     max_requests_per_week: int
-    interests: List[str]
+    interests: List[Interest]
     is_active: bool = True
     created_at: datetime
     updated_at: datetime
