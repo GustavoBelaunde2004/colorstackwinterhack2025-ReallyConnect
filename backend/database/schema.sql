@@ -15,7 +15,20 @@ CREATE TABLE IF NOT EXISTS user_profiles (
 CREATE INDEX IF NOT EXISTS idx_user_profiles_role ON user_profiles(role);
 
 -- ============================================
--- 2. Mentor Profiles
+-- 2. Interests Master Table
+-- ============================================
+CREATE TABLE IF NOT EXISTS interests (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name TEXT UNIQUE NOT NULL,
+    category TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_interests_name ON interests(name);
+CREATE INDEX IF NOT EXISTS idx_interests_category ON interests(category);
+
+-- ============================================
+-- 3. Mentor Profiles
 -- ============================================
 CREATE TABLE IF NOT EXISTS mentor_profiles (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -24,7 +37,6 @@ CREATE TABLE IF NOT EXISTS mentor_profiles (
     job_title TEXT,  -- Job title/position (e.g., "Senior Software Engineer")
     help_types_offered TEXT[] NOT NULL DEFAULT '{}',
     max_requests_per_week INTEGER NOT NULL DEFAULT 3 CHECK (max_requests_per_week > 0),
-    interests TEXT[] DEFAULT '{}',
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
@@ -33,11 +45,22 @@ CREATE TABLE IF NOT EXISTS mentor_profiles (
 -- Indexes for matching queries
 CREATE INDEX IF NOT EXISTS idx_mentor_active ON mentor_profiles(is_active) WHERE is_active = TRUE;
 CREATE INDEX IF NOT EXISTS idx_mentor_help_types ON mentor_profiles USING GIN(help_types_offered);
-CREATE INDEX IF NOT EXISTS idx_mentor_interests ON mentor_profiles USING GIN(interests);
 CREATE INDEX IF NOT EXISTS idx_mentor_industry ON mentor_profiles(industry);
 
 -- ============================================
--- 3. Mentee Profiles
+-- 4. Mentor Interests (Junction Table)
+-- ============================================
+CREATE TABLE IF NOT EXISTS mentor_interests (
+    mentor_profile_id UUID NOT NULL REFERENCES mentor_profiles(id) ON DELETE CASCADE,
+    interest_id UUID NOT NULL REFERENCES interests(id) ON DELETE CASCADE,
+    PRIMARY KEY (mentor_profile_id, interest_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_mentor_interests_profile ON mentor_interests(mentor_profile_id);
+CREATE INDEX IF NOT EXISTS idx_mentor_interests_interest ON mentor_interests(interest_id);
+
+-- ============================================
+-- 5. Mentee Profiles
 -- ============================================
 CREATE TABLE IF NOT EXISTS mentee_profiles (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -45,17 +68,27 @@ CREATE TABLE IF NOT EXISTS mentee_profiles (
     goals TEXT,
     help_needed TEXT[] NOT NULL DEFAULT '{}',
     background TEXT,
-    interests TEXT[] DEFAULT '{}',
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
 -- Indexes for matching queries
 CREATE INDEX IF NOT EXISTS idx_mentee_help_needed ON mentee_profiles USING GIN(help_needed);
-CREATE INDEX IF NOT EXISTS idx_mentee_interests ON mentee_profiles USING GIN(interests);
 
 -- ============================================
--- 4. Mentorship Requests
+-- 6. Mentee Interests (Junction Table)
+-- ============================================
+CREATE TABLE IF NOT EXISTS mentee_interests (
+    mentee_profile_id UUID NOT NULL REFERENCES mentee_profiles(id) ON DELETE CASCADE,
+    interest_id UUID NOT NULL REFERENCES interests(id) ON DELETE CASCADE,
+    PRIMARY KEY (mentee_profile_id, interest_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_mentee_interests_profile ON mentee_interests(mentee_profile_id);
+CREATE INDEX IF NOT EXISTS idx_mentee_interests_interest ON mentee_interests(interest_id);
+
+-- ============================================
+-- 7. Mentorship Requests
 -- ============================================
 CREATE TABLE IF NOT EXISTS mentorship_requests (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -81,7 +114,7 @@ CREATE INDEX IF NOT EXISTS idx_requests_status ON mentorship_requests(status) WH
 CREATE INDEX IF NOT EXISTS idx_requests_created ON mentorship_requests(created_at DESC);
 
 -- ============================================
--- 5. Connections (Accepted Requests)
+-- 8. Connections (Accepted Requests)
 -- ============================================
 CREATE TABLE IF NOT EXISTS connections (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
