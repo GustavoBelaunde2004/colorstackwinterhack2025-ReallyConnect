@@ -88,7 +88,6 @@ CREATE TABLE IF NOT EXISTS connections (
     mentor_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
     mentee_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
     request_id UUID REFERENCES mentorship_requests(id) ON DELETE SET NULL,
-    contact_exchanged BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMPTZ DEFAULT NOW(),
     
     -- Prevent duplicate connections
