@@ -45,3 +45,21 @@ async def health_check() -> Dict[str, str]:
     """Health check endpoint for monitoring."""
     return {"status": "healthy"}
 
+# TESTING SUPABASE CONNECTION
+from services.database import supabase
+
+@app.get("/test-supabase")
+async def test_supabase():
+    try:
+        # Try to query the interests table
+        result = supabase.table("interests").select("*").limit(1).execute()
+        return {
+            "status": "connected",
+            "message": "Successfully connected to Supabase!",
+            "sample_data": result.data
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": f"Failed to connect: {str(e)}"
+        }
