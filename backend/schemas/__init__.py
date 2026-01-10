@@ -7,7 +7,6 @@ from schemas.request import (
     MentorshipRequestResponse,
     MentorshipRequestListResponse
 )
-from schemas.match import MatchResult, MatchListResponse, MatchExplanationResponse
 from schemas.ai import RequestRewriteRequest, RequestRewriteResponse
 
 __all__ = [
@@ -26,10 +25,6 @@ __all__ = [
     "MentorshipRequestCreate",
     "MentorshipRequestResponse",
     "MentorshipRequestListResponse",
-    # Match schemas
-    "MatchResult",
-    "MatchListResponse",
-    "MatchExplanationResponse",
     # AI schemas
     "RequestRewriteRequest",
     "RequestRewriteResponse",

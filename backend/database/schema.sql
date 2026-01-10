@@ -7,7 +7,7 @@
 CREATE TABLE IF NOT EXISTS user_profiles (
     id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
     full_name TEXT,
-    role TEXT NOT NULL CHECK (role IN ('mentor', 'mentee', 'both')),
+    role TEXT NOT NULL CHECK (role IN ('mentor', 'mentee')),
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
