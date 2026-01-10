@@ -1,16 +1,35 @@
 import Breadcrumb from "../components/BreadCrumb";
+import { useNavigate } from "react-router-dom";
+import Card from "../components/Card";
+import mentorImg from "../assets/mentor.webp";
+import menteeImg from "../assets/mentee.jpg";
 
 import "../App.css";
-import Card from "../components/Card";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="sign-up">
+    <>
       <Breadcrumb />
-      <h1>Sign up</h1>
-      <Card image="https://via.placeholder.com/150" name="Mentor" />
-      <Card image="https://via.placeholder.com/150" name="Mentee" />
-    </div>
+      <div className="role-page">
+        <h1 className="role-title">Choose Your Role</h1>
+
+        <div className="role-card-container">
+          <Card
+            title="Mentor"
+            image={mentorImg}
+            onClick={() => navigate("/signup/mentor")}
+          />
+
+          <Card
+            title="Mentee"
+            image={menteeImg}
+            onClick={() => navigate("/signup/mentee")}
+          />
+        </div>
+      </div>
+    </>
   );
 };
 
