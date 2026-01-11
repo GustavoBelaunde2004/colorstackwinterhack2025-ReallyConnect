@@ -10,10 +10,10 @@ class MenteeProfile(BaseModel):
     """Domain model matching mentee_profiles table."""
     id: UUID
     user_id: UUID
+    industry: Optional[str] = None
     goals: Optional[str] = None
     help_needed: List[HelpType]
     background: Optional[str] = None
     interests: List[Interest]
     created_at: datetime
     updated_at: datetime
-
