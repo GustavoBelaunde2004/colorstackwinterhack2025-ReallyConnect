@@ -12,7 +12,7 @@ const SignIn = () => {
   };
 
   return (
-    <div>
+    <div className="sign-in-page">
       <Breadcrumb />
       <h1>Sign In</h1>
       <button onClick={handleSignIn}>Sign In through Linkedin</button>

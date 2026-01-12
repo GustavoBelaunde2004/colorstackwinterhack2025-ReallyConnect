@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className="landing-nav">
       <a href="/">
         <img src={logo} alt="Logo" className="nav-logo" />
       </a>
@@ -16,12 +16,6 @@ const Nav = () => {
         </li>
         <li>
           <a href="/signup">Sign Up</a>
-        </li>
-        <li>
-          <a href="/about">About</a>
-        </li>
-        <li>
-          <a href="/contact">Contact</a>
         </li>
       </ul>
     </nav>
