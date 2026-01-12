@@ -7,23 +7,16 @@ const Matches = () => {
       <h1>Your Matches</h1>
 
       <div className="match-list">
-        <div className="match-item">
-          <img src="/assets/sarah.jpg" alt="Match" />
-          <div>
-            <h4>Sarah Kim</h4>
-            <p>Tap to message</p>
+        <a className="match-message" href="/app/matches/messages">
+          <div className="match-item">
+            <img src="../assets/JamesWright.jpg" alt="Match" />
+            <div>
+              <h4>James Wright</h4>
+              <p>Tap to message</p>
+            </div>
           </div>
-        </div>
-
-        <div className="match-item">
-          <img src="/assets/JamesWright.jpg" alt="Match" />
-          <div>
-            <h4>James Wright</h4>
-            <p>Tap to message</p>
-          </div>
-        </div>
+        </a>
       </div>
-
       <MobileNav />
     </div>
   );

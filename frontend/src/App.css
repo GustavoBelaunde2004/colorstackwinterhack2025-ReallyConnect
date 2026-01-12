@@ -32,6 +32,17 @@ body {
   overflow: hidden;
 }
 
+.app-shell footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
 /* ---------- NAVBAR DESKTOP ---------- */
 .landing-nav {
   display: flex;
@@ -94,7 +105,7 @@ body {
 
 /* ---------- SIGN IN PAGE ---------- */
 .sign-in-page {
-  background-image: url("./assets/landing.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./assets/landing.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -137,7 +148,6 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* ---------- MOBILE TOP NAV ONLY ---------- */
 /* ---------- MOBILE (PHONES) ---------- */
 @media (max-width: 480px) {
   .landing-nav {
@@ -148,7 +158,7 @@ body {
 
   .landing-nav img {
     height: 90px;
-    margin-top: 1rem;
+    margin-top: 7rem;
     margin-bottom: 1.25rem;
   }
 
@@ -156,8 +166,8 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 5rem;
-    margin-bottom: 1.75rem;
+    margin-top: 6rem;
+    margin-bottom: 1.5rem;
     gap: 0.75rem;
   }
 
@@ -211,6 +221,31 @@ body {
 }
 
 
+
+/* ---------- APP HOME PAGE ---------- */
+.app-home-page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./assets/landing.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+
+@media (max-width: 480px) {
+  .app-home-page {
+    padding: 6rem 1rem;
+  }
+  .app-home-page .profile-card {
+    height: 45rem;
+    width: 90%;
+  }
+}
 /* ---------- SIGNUP ROLE PAGE ---------- */
 .sign-up-page{
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./assets/landing.jpeg);
@@ -281,7 +316,7 @@ body {
   align-items: center;
 
   padding: 0.5rem 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(46, 92, 217, 0.9);
   backdrop-filter: blur(10px);
   z-index: 999;
 
@@ -314,7 +349,7 @@ body {
 }
 
 .nav-item.active {
-  color: #61d86b;
+  color: #60ef65;
 }
 
 /* ---------- SMALL SCREENS ---------- */
@@ -339,7 +374,7 @@ body {
   }
 }
 
-/* ---------- PROFILE CARD ---------- */
+/* ---------- PROFILE CARD/Component ---------- */
 .profile-card {
   position: relative;
   width: 100%;
@@ -348,6 +383,10 @@ body {
   border-radius: 16px;
   overflow: hidden;
   background: #000;
+}
+
+.profile-card h1{
+  border: 1px solid black;
 }
 
 .profile-card img {
@@ -367,8 +406,10 @@ body {
 
 /* ---------- MATCHES PAGE ---------- */
 .matches-page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./assets/landing.jpeg");
+  background-size: cover;
   padding: 1.5rem;
-  padding-bottom: 90px;
+  min-height: 100vh;
   color: #fff;
 }
 
@@ -382,9 +423,15 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(248, 243, 243, 0.896);
   padding: 1rem;
   border-radius: 12px;
+  color: #000;
+}
+
+.match-message {
+  text-decoration: none;
+  
 }
 
 .match-item img {
@@ -392,4 +439,119 @@ body {
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* Profile page styling */
+/* Profile page styling */
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f1e4, #ffd966);
+  font-family: sans-serif;
+  color: #333;
+}
+
+.profile-page h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Profile info box */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 90%;
+  max-width: 400px;
+  /* default max width */
+  background: #fff9f0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+  /* smooth resizing */
+}
+
+.profile-info div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input.profile-input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  flex: 1;
+  margin-left: 1rem;
+}
+
+/* Buttons styling */
+button {
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.signout-btn {
+  background-color: #ff6b6b;
+  color: #fff;
+}
+
+.signout-btn:hover {
+  background-color: #ff4c4c;
+}
+
+.update-btn {
+  background-color: #4caf50;
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+.update-btn:hover {
+  background-color: #3e8e41;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* ---------- MEDIA QUERIES FOR RESPONSIVENESS ---------- */
+
+/* Medium screens (tablets) */
+@media (min-width: 600px) {
+  .profile-info {
+    max-width: 500px;
+    padding: 2rem;
+  }
+}
+
+/* Large screens (desktop) */
+@media (min-width: 900px) {
+  .profile-info {
+    max-width: 700px;
+    padding: 2.5rem;
+  }
+
+  .profile-page h1 {
+    font-size: 2.5rem;
+  }
+
+  input.profile-input {
+    padding: 0.75rem;
+  }
 }
