@@ -113,7 +113,7 @@ nav img {
 
 /* ---------- MOBILE (PHONES) ---------- */
 @media (max-width: 480px) {
-  
+
   nav {
     flex-direction: column;
     align-items: center;
@@ -159,16 +159,17 @@ nav img {
     transform: scale(0.98);
   }
 
-        .home-header {
-          font-size: 4.5rem;
-          margin-top: 1rem;
-        }
+  .home-header {
+    font-size: 4.5rem;
+    margin-top: 1rem;
+  }
 
 }
 
 /* ---------- SMALL PHONES (iPhone SE) ---------- */
+
 @media (max-width: 375px) {
- 
+
   nav img {
     height: 70px;
     margin: 0 auto;
@@ -179,8 +180,65 @@ nav img {
     font-size: 0.9rem;
     padding: 0.8rem 0;
   }
-  .home-header{
+
+  .home-header {
     font-size: 3.5rem;
     margin-top: 8vh;
-  } 
+  }
+}
+
+
+
+/* ---------- Signup page ---------- */
+
+.role-page {
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.role-title {
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.role-card-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 900px;
+  width: 100%;
+  justify-content: center;
+}
+
+.role-card-container img {
+  border-radius: 12px;
+  max-width: 250px;
+  height: auto;
+}
+
+/* Make cards clickable */
+.role-card-container>* {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.role-card-container>*:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {
+  .role-card-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .role-title {
+    font-size: 2rem;
+  }
 }
