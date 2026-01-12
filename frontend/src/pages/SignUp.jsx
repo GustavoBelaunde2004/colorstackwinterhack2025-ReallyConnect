@@ -10,7 +10,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="sign-up-page">
       <Breadcrumb />
       <div className="role-page">
         <h1 className="role-title">Choose Your Role</h1>
@@ -29,7 +29,7 @@ const SignUp = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

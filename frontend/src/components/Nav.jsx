@@ -9,10 +9,7 @@ const Nav = () => {
       </a>
       <ul className="horizontal-list">
         <li>
-          <a href="/signin">
-            Sign In with{" "}
-            <img src="../assets/linkedin-logo.png" alt="Linkedin" />
-          </a>
+          <a href="/signin">Sign In</a>
         </li>
         <li>
           <a href="/signup">Sign Up</a>

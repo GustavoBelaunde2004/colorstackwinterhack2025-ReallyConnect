@@ -212,6 +212,13 @@ body {
 
 
 /* ---------- SIGNUP ROLE PAGE ---------- */
+.sign-up-page{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./assets/landing.jpeg);
+  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .role-page {
   min-height: 100vh;
   padding: 2rem 1.5rem;
@@ -239,6 +246,10 @@ body {
   border-radius: 12px;
   max-width: 500px;
   height: auto;
+}
+.role-card-container img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 /* ---------- MOBILE ROLE CARDS ---------- */
