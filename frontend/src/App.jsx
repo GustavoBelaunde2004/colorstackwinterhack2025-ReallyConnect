@@ -2,24 +2,27 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Landing from "./pages/Landing";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import AppHome from "./pages/AppHome";
+import Matches from "./pages/Matches";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <div className="app-shell">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* Public */}
+        <Route path="/" element={<Landing />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+
+        {/* Post-auth App */}
+        <Route path="/app/home" element={<AppHome />} />
+        <Route path="/app/matches" element={<Matches />} />
+        <Route path="/app/profile" element={<Profile />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -2,7 +2,7 @@ import Nav from "../components/Nav";
 
 const Landing = () => {
   return (
-    <div className="home">
+    <div className="app-shell">
       <Nav />
     </div>
   );
