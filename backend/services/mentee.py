@@ -36,6 +36,7 @@ class MenteeService:
             mentee_profile = MenteeProfile(
                 id=mentee_id,
                 user_id=UUID(data["user_id"]),
+                industry=data.get("industry"),
                 goals=data.get("goals"),
                 help_needed=[HelpType(hn) for hn in data.get("help_needed", [])],
                 background=data.get("background"),
@@ -77,6 +78,7 @@ class MenteeService:
             mentee_profile = MenteeProfile(
                 id=profile_id,
                 user_id=UUID(data["user_id"]),
+                industry=data.get("industry"),
                 goals=data.get("goals"),
                 help_needed=[HelpType(hn) for hn in data.get("help_needed", [])],
                 background=data.get("background"),
@@ -110,6 +112,7 @@ class MenteeService:
             # Create mentee profile
             profile_dict = {
                 "user_id": str(user_id),
+                "industry": profile_data.industry,
                 "goals": profile_data.goals,
                 "help_needed": [hn.value for hn in profile_data.help_needed],
                 "background": profile_data.background
@@ -158,6 +161,8 @@ class MenteeService:
             
             # Build update dict
             update_dict = {}
+            if update_data.industry is not None:
+                update_dict["industry"] = update_data.industry
             if update_data.goals is not None:
                 update_dict["goals"] = update_data.goals
             if update_data.help_needed is not None:
