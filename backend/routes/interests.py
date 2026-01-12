@@ -1,7 +1,8 @@
-from fastapi import APIRouter, Query, HTTPException, status
+from fastapi import APIRouter, Query
 from typing import List, Optional
 
 from models.interest import Interest
+from services.interest import InterestService
 
 router = APIRouter()
 
@@ -16,9 +17,5 @@ async def get_all_interests(
     Public endpoint - no authentication required.
     Returns master list of all interests for use in dropdowns/autocomplete.
     """
-    # TODO: Import and call InterestService.get_all_interests(category)
-    raise HTTPException(
-        status_code=status.HTTP_501_NOT_IMPLEMENTED,
-        detail="InterestService not implemented yet"
-    )
+    return InterestService.get_all_interests(category)
 

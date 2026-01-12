@@ -65,6 +65,7 @@ CREATE INDEX IF NOT EXISTS idx_mentor_interests_interest ON mentor_interests(int
 CREATE TABLE IF NOT EXISTS mentee_profiles (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID NOT NULL UNIQUE REFERENCES auth.users(id) ON DELETE CASCADE,
+    industry TEXT,
     goals TEXT,
     help_needed TEXT[] NOT NULL DEFAULT '{}',
     background TEXT,

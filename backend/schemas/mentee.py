@@ -9,6 +9,7 @@ from models.mentee import MenteeProfile
 
 class MenteeProfileCreate(BaseModel):
     """Schema for creating a mentee profile."""
+    industry: Optional[str] = None
     goals: Optional[str] = None
     help_needed: List[HelpType]
     background: Optional[str] = None
@@ -17,6 +18,7 @@ class MenteeProfileCreate(BaseModel):
 
 class MenteeProfileUpdate(BaseModel):
     """Schema for updating a mentee profile (all fields optional)."""
+    industry: Optional[str] = None
     goals: Optional[str] = None
     help_needed: Optional[List[HelpType]] = None
     background: Optional[str] = None
@@ -26,6 +28,7 @@ class MenteeProfileUpdate(BaseModel):
 class MenteeProfileResponse(BaseModel):
     """Schema for mentee profile API response."""
     id: UUID
+    industry: Optional[str] = None
     user_id: UUID
     goals: Optional[str] = None
     help_needed: List[HelpType]

@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Query
+from fastapi import APIRouter, Depends, Query
 from uuid import UUID
 from typing import List, Optional
 
 from middleware.auth import get_current_user
 from schemas.mentor import MentorProfileResponse
 from models.common import HelpType
+from services.recommendation import RecommendationService
 
 router = APIRouter()
 
@@ -22,10 +23,7 @@ async def get_recommended_mentors(
     Returns personalized mentor recommendations based on mentee's profile,
     interests, and help needed. This is the swipeable feed for mentees.
     """
-    # TODO: Import and call RecommendationService.get_recommended_mentors(user_id, help_type, limit, offset)
-    # Service should exclude mentors user already has pending/accepted requests with
-    raise HTTPException(
-        status_code=status.HTTP_501_NOT_IMPLEMENTED,
-        detail="RecommendationService not implemented yet"
-    )
+    return RecommendationService.get_recommended_mentors(user_id, help_type, limit, offset)
+
+
 
