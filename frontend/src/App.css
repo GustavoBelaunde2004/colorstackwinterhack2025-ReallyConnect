@@ -287,6 +287,91 @@ body {
   transition: transform 0.3s ease;
 }
 
+
+/* Onboarding page styling */
+.onboarding-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f1e4, #ffd966);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.onboarding-page h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.onboarding-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  background: #fff9f0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.onboarding-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+
+.onboarding-form input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.submit-btn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #3e8e41;
+}
+
+.onboarding-logo {
+  margin-top: 2rem;
+  width: 120px;
+  height: auto;
+}
+
+/* Mobile responsive adjustments */
+@media (min-width: 600px) {
+  .onboarding-form {
+    max-width: 500px;
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .onboarding-form {
+    max-width: 700px;
+    padding: 3rem;
+  }
+
+  .onboarding-page h1 {
+    font-size: 2.5rem;
+  }
+}
+
+
+
 /* ---------- MOBILE ROLE CARDS ---------- */
 @media (max-width: 600px) {
   .role-card-container {

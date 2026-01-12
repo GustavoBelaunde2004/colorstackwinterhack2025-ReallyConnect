@@ -1,5 +1,6 @@
 import Breadcrumb from "../components/BreadCrumb";
 import { useNavigate } from "react-router-dom";
+
 import Card from "../components/Card";
 import mentorImg from "../assets/mentor.webp";
 import menteeImg from "../assets/mentee.jpg";
@@ -19,13 +20,19 @@ const SignUp = () => {
           <Card
             title="Mentor"
             image={mentorImg}
-            onClick={() => navigate("/signup/mentor")}
+            onClick={() => {
+              localStorage.setItem("userRole", "mentor");
+              navigate("/signup/mentor");
+            }}
           />
 
           <Card
             title="Mentee"
             image={menteeImg}
-            onClick={() => navigate("/signup/mentee")}
+            onClick={() => {
+              localStorage.setItem("userRole", "mentee");
+              navigate("/signup/mentee");
+            }}
           />
         </div>
       </div>
