@@ -30,7 +30,7 @@ function App() {
         {/* Post-auth App */}
         <Route path="/app/home" element={<AppHome />} />
         <Route path="/app/matches" element={<Matches />} />
-        <Route path="/app/messages" element={<Messages />} />
+        <Route path="/app/matches/messages" element={<Messages />} />
         <Route path="/app/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>

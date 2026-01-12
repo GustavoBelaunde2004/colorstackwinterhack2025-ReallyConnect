@@ -2,19 +2,27 @@ import MobileNav from "../components/MobileNav";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
+const name = "James Wright";
+
 const Messages = () => {
   const navigation = useNavigate();
 
   return (
     <div className="matches-page">
-      <p onClick={() => navigation("/matches")}>Back</p>
-      <h2>Profile</h2>
+      <p className="messages-back" onClick={() => navigation("/app/matches")}>
+        {" "}
+        &larr; Back
+      </p>
+      <h2>{name}</h2>
 
-      <input
-        type="text"
-        placeholder="Search messages..."
-        className="message-search"
-      />
+      <div className="message-textbox-container">
+        <input
+          type="text"
+          placeholder=":Send a message..."
+          className="message-textbox"
+        />{" "}
+        <button className="message-send-button">Send</button>
+      </div>
       <MobileNav />
     </div>
   );
