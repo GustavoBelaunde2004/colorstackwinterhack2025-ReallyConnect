@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Query
+from fastapi import APIRouter, Depends, Query, status
 from uuid import UUID
 from typing import List, Optional
 
 from middleware.auth import get_current_user
 from schemas.mentee import MenteeProfileCreate, MenteeProfileUpdate, MenteeProfileResponse
 from models.common import HelpType
+from services.mentee import MenteeService
 
 router = APIRouter()
 
@@ -14,11 +15,7 @@ async def get_my_mentee_profile(
     user_id: UUID = Depends(get_current_user)
 ):
     """Get current user's mentee profile."""
-    # TODO: Import and call MenteeService.get_mentee_profile(user_id)
-    raise HTTPException(
-        status_code=status.HTTP_501_NOT_IMPLEMENTED,
-        detail="MenteeService not implemented yet"
-    )
+    return MenteeService.get_mentee_profile(user_id)
 
 
 @router.post("/me", response_model=MenteeProfileResponse, status_code=status.HTTP_201_CREATED)
@@ -27,11 +24,7 @@ async def create_mentee_profile(
     user_id: UUID = Depends(get_current_user)
 ):
     """Create mentee profile for current user."""
-    # TODO: Import and call MenteeService.create_mentee_profile(user_id, profile_data)
-    raise HTTPException(
-        status_code=status.HTTP_501_NOT_IMPLEMENTED,
-        detail="MenteeService not implemented yet"
-    )
+    return MenteeService.create_mentee_profile(user_id, profile_data)
 
 
 @router.put("/me", response_model=MenteeProfileResponse)
@@ -40,11 +33,7 @@ async def update_mentee_profile(
     user_id: UUID = Depends(get_current_user)
 ):
     """Update current user's mentee profile."""
-    # TODO: Import and call MenteeService.update_mentee_profile(user_id, profile_data)
-    raise HTTPException(
-        status_code=status.HTTP_501_NOT_IMPLEMENTED,
-        detail="MenteeService not implemented yet"
-    )
+    return MenteeService.update_mentee_profile(user_id, profile_data)
 
 
 @router.get("", response_model=List[MenteeProfileResponse])
@@ -55,11 +44,7 @@ async def browse_mentees(
     user_id: UUID = Depends(get_current_user)
 ):
     """Browse all mentees. Available to both mentors and mentees."""
-    # TODO: Import and call MenteeService.browse_mentees(user_id, help_needed, limit, offset)
-    raise HTTPException(
-        status_code=status.HTTP_501_NOT_IMPLEMENTED,
-        detail="MenteeService not implemented yet"
-    )
+    return MenteeService.browse_mentees(user_id, help_needed, limit, offset)
 
 
 @router.get("/{mentee_id}", response_model=MenteeProfileResponse)
@@ -68,9 +53,5 @@ async def get_mentee_profile(
     user_id: UUID = Depends(get_current_user)
 ):
     """Get public mentee profile by ID."""
-    # TODO: Import and call MenteeService.get_mentee_profile(mentee_id)
-    raise HTTPException(
-        status_code=status.HTTP_501_NOT_IMPLEMENTED,
-        detail="MenteeService not implemented yet"
-    )
+    return MenteeService.get_mentee_profile_by_id(mentee_id)
 

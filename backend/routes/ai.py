@@ -1,8 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends
 from uuid import UUID
 
 from middleware.auth import get_current_user
 from schemas.ai import RequestRewriteRequest, RequestRewriteResponse
+from services.ai import AIService
 
 router = APIRouter()
 
@@ -13,9 +14,5 @@ async def rewrite_request(
     user_id: UUID = Depends(get_current_user)
 ):
     """Get AI-suggested rewrite of mentorship request text."""
-    # TODO: Import and call AIService.rewrite_request(request_data.original_text, request_data.questions)
-    raise HTTPException(
-        status_code=status.HTTP_501_NOT_IMPLEMENTED,
-        detail="AIService not implemented yet"
-    )
+    return AIService.rewrite_request(request_data.original_text, request_data.questions)
 

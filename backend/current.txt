@@ -1,0 +1,31 @@
+Current endpoints
+1. User Management:
+GET /api/users/me - Get your profile
+PUT /api/users/me - Update your profile
+
+2. Interests:
+GET /api/interests - Get all available interests (for dropdowns)
+
+3. Mentor Profiles:
+GET /api/mentors/me - Get your own mentor profile
+POST /api/mentors/me - Create your mentor profile
+PUT /api/mentors/me - Update your mentor profile
+GET /api/mentors/{mentor_id} - View a specific mentor's profile
+
+4. Mentee Profiles:
+GET /api/mentees/me - Get your own mentee profile
+POST /api/mentees/me - Create your mentee profile
+PUT /api/mentees/me - Update your mentee profile
+
+5. Recommendation:
+POST /api/recommendation/recommend/{id} - Returns a recommended mentor for the mentee user
+
+6. Requests:
+POST /api/requests - Create a mentorship request (mentee sends to mentor)
+GET /api/requests - Get your requests (mentors see incoming, mentees see sent)
+GET /api/requests/{id} - Get specific request details
+PATCH /api/requests/{id}/accept - Mentor accepts request
+PATCH /api/requests/{id}/decline - Mentor declines request
+
+7. AI:
+POST /api/ai/rewrite-request - AI helps rewrite request text
