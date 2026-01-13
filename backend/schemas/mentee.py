@@ -14,6 +14,7 @@ class MenteeProfileCreate(BaseModel):
     help_needed: List[HelpType]
     background: Optional[str] = None
     interest_ids: List[UUID]  # List of interest IDs
+    profile_picture_url: Optional[str] = None
 
 
 class MenteeProfileUpdate(BaseModel):
@@ -23,6 +24,7 @@ class MenteeProfileUpdate(BaseModel):
     help_needed: Optional[List[HelpType]] = None
     background: Optional[str] = None
     interest_ids: Optional[List[UUID]] = None  # List of interest IDs
+    profile_picture_url: Optional[str] = None
 
 
 class MenteeProfileResponse(BaseModel):
@@ -34,6 +36,7 @@ class MenteeProfileResponse(BaseModel):
     help_needed: List[HelpType]
     background: Optional[str] = None
     interests: List[Interest]  # Full Interest objects
+    profile_picture_url: Optional[str] = None
     created_at: datetime
     updated_at: datetime
 

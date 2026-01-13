@@ -15,5 +15,6 @@ class MenteeProfile(BaseModel):
     help_needed: List[HelpType]
     background: Optional[str] = None
     interests: List[Interest]
+    profile_picture_url: Optional[str] = None
     created_at: datetime
     updated_at: datetime

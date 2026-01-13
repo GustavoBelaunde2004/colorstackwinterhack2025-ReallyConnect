@@ -15,6 +15,7 @@ class MentorProfile(BaseModel):
     help_types_offered: List[HelpType]
     max_requests_per_week: int
     interests: List[Interest]
+    profile_picture_url: Optional[str] = None
     is_active: bool = True
     created_at: datetime
     updated_at: datetime

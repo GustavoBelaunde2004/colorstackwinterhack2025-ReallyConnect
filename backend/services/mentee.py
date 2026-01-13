@@ -41,6 +41,7 @@ class MenteeService:
                 help_needed=[HelpType(hn) for hn in data.get("help_needed", [])],
                 background=data.get("background"),
                 interests=interests,
+                profile_picture_url=data.get("profile_picture_url"),
                 created_at=datetime.fromisoformat(data["created_at"].replace("Z", "+00:00")),
                 updated_at=datetime.fromisoformat(data["updated_at"].replace("Z", "+00:00"))
             )
@@ -83,6 +84,7 @@ class MenteeService:
                 help_needed=[HelpType(hn) for hn in data.get("help_needed", [])],
                 background=data.get("background"),
                 interests=interests,
+                profile_picture_url=data.get("profile_picture_url"),
                 created_at=datetime.fromisoformat(data["created_at"].replace("Z", "+00:00")),
                 updated_at=datetime.fromisoformat(data["updated_at"].replace("Z", "+00:00"))
             )
@@ -115,7 +117,8 @@ class MenteeService:
                 "industry": profile_data.industry,
                 "goals": profile_data.goals,
                 "help_needed": [hn.value for hn in profile_data.help_needed],
-                "background": profile_data.background
+                "background": profile_data.background,
+                "profile_picture_url": profile_data.profile_picture_url
             }
             
             result = supabase.table("mentee_profiles").insert(profile_dict).execute()
@@ -169,6 +172,8 @@ class MenteeService:
                 update_dict["help_needed"] = [hn.value for hn in update_data.help_needed]
             if update_data.background is not None:
                 update_dict["background"] = update_data.background
+            if update_data.profile_picture_url is not None:
+                update_dict["profile_picture_url"] = update_data.profile_picture_url
             
             if update_dict:
                 update_dict["updated_at"] = datetime.utcnow().isoformat()

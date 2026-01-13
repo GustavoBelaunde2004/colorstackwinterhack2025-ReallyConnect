@@ -12,6 +12,9 @@ Even within supportive communities like ColorStack, junior members often struggl
 
 ReallyConnect replaces broken networking patterns with a respectful, efficient system that protects mentor time while empowering mentees to make high-quality, intentional connection requests.
 
+👨🏻‍🏫 Presentation
+[View PDF Document](./ReallyConnect.pdf)
+
 🎯 Problem Alignment
 
 ReallyConnect directly addresses three major issues in modern professional networking:

@@ -42,6 +42,7 @@ class MentorService:
                 help_types_offered=[HelpType(ht) for ht in data.get("help_types_offered", [])],
                 max_requests_per_week=data["max_requests_per_week"],
                 interests=interests,
+                profile_picture_url=data.get("profile_picture_url"),
                 is_active=data.get("is_active", True),
                 created_at=datetime.fromisoformat(data["created_at"].replace("Z", "+00:00")),
                 updated_at=datetime.fromisoformat(data["updated_at"].replace("Z", "+00:00"))
@@ -85,6 +86,7 @@ class MentorService:
                 help_types_offered=[HelpType(ht) for ht in data.get("help_types_offered", [])],
                 max_requests_per_week=data["max_requests_per_week"],
                 interests=interests,
+                profile_picture_url=data.get("profile_picture_url"),
                 is_active=data.get("is_active", True),
                 created_at=datetime.fromisoformat(data["created_at"].replace("Z", "+00:00")),
                 updated_at=datetime.fromisoformat(data["updated_at"].replace("Z", "+00:00"))
@@ -119,6 +121,7 @@ class MentorService:
                 "job_title": profile_data.job_title,
                 "help_types_offered": [ht.value for ht in profile_data.help_types_offered],
                 "max_requests_per_week": profile_data.max_requests_per_week,
+                "profile_picture_url": profile_data.profile_picture_url,
                 "is_active": True
             }
             
@@ -173,6 +176,8 @@ class MentorService:
                 update_dict["help_types_offered"] = [ht.value for ht in update_data.help_types_offered]
             if update_data.max_requests_per_week is not None:
                 update_dict["max_requests_per_week"] = update_data.max_requests_per_week
+            if update_data.profile_picture_url is not None:
+                update_dict["profile_picture_url"] = update_data.profile_picture_url
             if update_data.is_active is not None:
                 update_dict["is_active"] = update_data.is_active
             

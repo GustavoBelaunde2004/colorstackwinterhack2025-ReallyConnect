@@ -14,6 +14,7 @@ class MentorProfileCreate(BaseModel):
     help_types_offered: List[HelpType]
     max_requests_per_week: int
     interest_ids: List[UUID]  # List of interest IDs
+    profile_picture_url: Optional[str] = None
 
 
 class MentorProfileUpdate(BaseModel):
@@ -23,6 +24,7 @@ class MentorProfileUpdate(BaseModel):
     help_types_offered: Optional[List[HelpType]] = None
     max_requests_per_week: Optional[int] = None
     interest_ids: Optional[List[UUID]] = None  # List of interest IDs
+    profile_picture_url: Optional[str] = None
     is_active: Optional[bool] = None
 
 
@@ -35,6 +37,7 @@ class MentorProfileResponse(BaseModel):
     help_types_offered: List[HelpType]
     max_requests_per_week: int
     interests: List[Interest]  # Full Interest objects
+    profile_picture_url: Optional[str] = None
     is_active: bool
     created_at: datetime
     updated_at: datetime

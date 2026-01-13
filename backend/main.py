@@ -12,9 +12,17 @@ app = FastAPI(
 )
 
 # Configure CORS
+# For development: Allow localhost origins
+# For production: Update with your deployed frontend URL
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # TODO: Update with actual frontend URL in production
+    allow_origins=[
+        "http://localhost:5173",  # Vite dev server
+        "http://localhost:3000",  # Alternative React dev server
+        "http://127.0.0.1:5173",
+        # TODO: Add your production frontend URL here
+        # "https://your-app.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
