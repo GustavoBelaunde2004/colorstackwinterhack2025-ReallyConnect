@@ -2,6 +2,7 @@ import MobileNav from "../components/MobileNav";
 import "../App.css";
 
 import profile from "../assets/JamesWright.jpg";
+import sarah from "../assets/sarah.jpg";
 
 const Matches = () => {
   return (
@@ -14,6 +15,15 @@ const Matches = () => {
             <img src={profile} alt="Match" />
             <div>
               <h4>James Wright</h4>
+              <p>Tap to message</p>
+            </div>
+          </div>
+        </a>
+        <a className="match-message-2" href="/app/matches/messages">
+          <div className="match-item">
+            <img src={sarah} alt="Match" />
+            <div>
+              <h4>Sarah Nguyen</h4>
               <p>Tap to message</p>
             </div>
           </div>

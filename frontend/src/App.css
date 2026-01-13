@@ -553,9 +553,10 @@ body {
   padding: 1rem;
   border-radius: 12px;
   color: #000;
+  margin: 0.3rem;
 }
 
-.match-message {
+.match-message, .match-message-2 {
   text-decoration: none;
   
 }
@@ -611,6 +612,20 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s;
+}
+@media (max-width: 480px) {
+  .message-textbox-container {
+    bottom: 5.75rem;
+  }
+  
+  .message-textbox{
+    width: 80%;
+    margin: 0.1rem;
+
+  }
+  .message-send-button {
+    margin: 0;
+  }
 }
 
 /* Profile page styling */
