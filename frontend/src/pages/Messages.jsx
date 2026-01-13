@@ -9,11 +9,13 @@ const Messages = () => {
 
   return (
     <div className="matches-page">
-      <p className="messages-back" onClick={() => navigation("/app/matches")}>
-        {" "}
-        &larr; Back
-      </p>
-      <h2>{name}</h2>
+      <div className="messages-header">
+        <p className="messages-back" onClick={() => navigation("/app/matches")}>
+          {" "}
+          &larr; Back
+        </p>
+        <h2>{name}</h2>
+      </div>
 
       <div className="message-textbox-container">
         <input
