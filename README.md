@@ -1,4 +1,4 @@
-colorstackwinterhack2025-ReallyConnect
+##ColorStack Winter Hackathon: ReallyConnect
 
 <p align="center">
   <img src="frontend/src/assets/logo.png" alt="ReallyConnect Logo" width="200" />
