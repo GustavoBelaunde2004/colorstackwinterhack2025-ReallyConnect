@@ -1,7 +1,7 @@
 colorstackwinterhack2025-ReallyConnect
 
 <p align="center">
-  <img src="assets/logo.png" alt="ReallyConnect Logo" width="200" />
+  <img src="frontend/src/assets/logo.png" alt="ReallyConnect Logo" width="200" />
 </p>
 
 🌐 Project Description
